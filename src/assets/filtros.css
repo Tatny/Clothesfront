@@ -1,0 +1,35 @@
+.dropit{
+    display: flex ;
+    flex-direction: column;
+    width: 15vw;
+    height: 90vh;
+    /* border:solid; */
+    padding: 2%;
+    justify-content: center;
+    font-family:  'Nanum Myeongjo', serif;
+    position: fixed;
+
+}
+
+.perro{
+    padding-bottom: 10%;
+
+}
+.gender{
+    background-color: white !important;
+    border: solid 1px black !important;
+}
+
+.style{
+    background-color: white !important;
+    border: solid 1px black !important;
+    padding-left: 43px !important;
+    padding-right: 43px !important;
+}
+
+.price{
+    background-color: white !important;
+    border: solid 1px black !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+}

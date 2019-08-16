@@ -31,3 +31,8 @@
     transform: rotate(360deg);
   }
 }
+
+
+.filtros-container{
+  display: flex;
+}
