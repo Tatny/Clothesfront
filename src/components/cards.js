@@ -17,7 +17,7 @@ export class cards extends Component {
                             <p class="card-text">{this.props.Color}</p>
                             <p class="card-text">${this.props.Price}</p>
                             <p class="card-text">{this.props.Talla}</p>
-                            <a href="#" class="btn btn-primary">+</a>
+                            <p class="btn btn-primary">+</p>
                         </div>
                 </div>
                 </div>)

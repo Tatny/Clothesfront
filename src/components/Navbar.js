@@ -9,34 +9,35 @@ export default class Example extends React.Component {
         return (
             <div>
 
-                <div className='nav' style= {{backgroundcolor:'#ffffff;'}}>
-                    <nav class="navbar navbar-expand-lg">
-                        <a class="navbar-brand" href="#">Logo</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                <div className='nav' style= {{backgroundcolor:'#ffffff'}}>
+                    <nav className="navbar navbar-expand-lg">
+                        <p className="navbar-brand"  >Breaking Barries</p>
+                        {/* <img src="../img/space + design.png" alt=""/> */}
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
                         </button>
-                            <form class="form-inline my-2 my-lg-0">
-                                {/* <input class="form-control mr-sm-2" type="Buscar" placeholder="Buscar" aria-label="Buscar"/>
-                                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
+                            <form className="form-inline my-2 my-lg-0">
+                                {/* <input className="form-control mr-sm-2" type="Buscar" placeholder="Buscar" aria-label="Buscar"/>
+                                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
                             </form>
 
-                        <div class="collapse navbar-collapse nav-options-container" id="navbarSupportedContent">
-                            <ul class="navbar-nav" style = {{color:'#000000;'}}>
+                        <div className="collapse navbar-collapse nav-options-container" id="navbarSupportedContent">
+                            <ul className="navbar-nav" style = {{color:'#000000'}}>
                                 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Log in</a>
+                                <li className="nav-item">
+                                    <p className="nav-link" >Log in</p>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Sign in</a>
+                                <li className="nav-item">
+                                    <p className="nav-link" >Sign in</p>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Carrito</a>
+                                <li className="nav-item">
+                                    <p className="nav-link" >Carrito</p>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Favoritos</a>
+                                <li className="nav-item">
+                                    <p className="nav-link" >Favoritos</p>
                                 </li>
                                
                         

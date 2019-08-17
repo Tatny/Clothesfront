@@ -7,11 +7,12 @@ import '../assets/cardContainer.css'
 export class ClothContainer extends Component {
     
      constructor(props){
-        super(props)
-        this.state={
-            clothes:new Array,
-            clothesToRender: new Array
-        }
+         super(props)
+         this.state={
+             clothes:[],
+             clothesToRender:[]
+            }
+        //  this.filterGender = this.filterGender.bind(this)
      }
 
 
@@ -19,16 +20,20 @@ export class ClothContainer extends Component {
         axios.get("https://clothing-api-emo.herokuapp.com/all/products")
             .then(res =>{
                 this.setState({
-                    clothes : res.data,
-                    
+                    clothesToRender : res.data,
+                    clothes: res.data
                 })
                 
             })
     }
 
     clothescards(){
-        this.state.clothesToRender = this.state.clothes
-        // console.log(this.state.clothesToRender)
+        // this.setState({
+        //     clothesToRender : this.state.clothes,
+            
+        // })
+        // this.state.clothesToRender = this.state.clothes
+        console.log(this.state.clothesToRender)
         return this.state.clothesToRender.map(clothes=>{
             return <Card Shop={clothes.store_name} Name={clothes.name_product} Color={clothes.color} Price={clothes.price} Talla={clothes.talla} Foto={clothes.url} key={clothes._id}/>
         })
@@ -36,18 +41,96 @@ export class ClothContainer extends Component {
     
     }
 
-     filterGender = () =>{
-        let genderArr = new Array;
-       genderArr= this.state.clothes.filter(item =>{
+    // clotheState(arr){
+    //     this.setState({
+    //         clothesToRender: arr
+    //     })
+    //     console.log('hola')
+    // }
+
+     filterMan = () =>{
+       let genderArr= this.state.clothes;
+        genderArr = genderArr.filter(item =>{
            return item.gender !== undefined && item.gender === 'm'
         })
-        
         this.setState({
             clothesToRender: genderArr
         })
         
-        debugger
     }
+
+    filterWmn = ()=>{
+        let wmnArr= this.state.clothes;
+        wmnArr = wmnArr.filter(item=>{
+            return item.gender !== undefined && item.gender === 'f'
+        })
+        this.setState({
+            clothesToRender: wmnArr
+        })
+
+    }
+    
+    filterCasual = ()=>{
+        let casualArr= this.state.clothes;
+        casualArr = casualArr.filter(item=>{
+            return item.estilo !== undefined && item.estilo === 'Casual'
+        })
+        this.setState({
+            clothesToRender: casualArr
+        })
+
+    }
+
+    filterElegant = ()=>{
+        let elegantArr= this.state.clothes;
+        elegantArr = elegantArr.filter(item=>{
+            return item.estilo !== undefined && item.estilo === 'Elegante'
+        })
+        this.setState({
+            clothesToRender: elegantArr
+        })
+
+    }
+ 
+    filterEurope = ()=>{
+        let europeArr= this.state.clothes;
+        europeArr = europeArr.filter(item=>{
+            return item.estilo !== undefined && item.estilo === 'Europeo'
+        })
+        this.setState({
+            clothesToRender: europeArr
+        })
+
+    }
+    
+    filtermas = ()=>{
+        let masArr= this.state.clothes;
+        masArr = masArr.filter(item=>{
+            return item.price !== undefined && item.price <= '1500'
+        })
+        this.setState({
+            clothesToRender: masArr
+        })
+
+    }
+
+    filtermenos = ()=>{
+        let menosArr= this.state.clothes;
+        menosArr = menosArr.filter(item=>{
+            return item.price !== undefined && item.price > '1500'
+        })
+        this.setState({
+            clothesToRender: menosArr
+        })
+
+    }
+
+
+
+
+
+
+    
 
 
     
@@ -61,8 +144,8 @@ export class ClothContainer extends Component {
                             <button className="gender btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Hombre/Mujer</button>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button className="dropdown-item" type="button" onClick={this.filterGender}>Mujer</button>
-                                <button className="dropdown-item" type="button" onClick={this.filterGender}>Hombre</button>
+                                <button className="dropdown-item" type="button" onClick={this.filterWmn}>Mujer</button>
+                                <button className="dropdown-item" type="button" onClick={this.filterMan}>Hombre</button>
                             </div>
                         </div>
                     </div>
@@ -72,9 +155,9 @@ export class ClothContainer extends Component {
                             <button className="btn dropdown-toggle style" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Estilos</button>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button className="dropdown-item" type="button">Casual</button>
-                                <button className="dropdown-item" type="button">Elegante</button>
-                                <button className="dropdown-item" type="button">Europeo</button>
+                                <button className="dropdown-item" type="button" onClick={this.filterCasual}>Casual</button>
+                                <button className="dropdown-item" type="button" onClick={this.filterElegant}>Elegante</button>
+                                <button className="dropdown-item" type="button" onClick={this.filterEurope}>Europeo</button>
                                 <button className="dropdown-item" type="button"></button>
                             </div>
                         </div>
@@ -85,8 +168,8 @@ export class ClothContainer extends Component {
                             <button className="btn dropdown-toggle price" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Precios</button>
                             <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button className="dropdown-item" type="button">-1500</button>
-                                <button className="dropdown-item" type="button">1500+</button>
+                                <button className="dropdown-item" type="button" onClick={this.filtermas}>-1500</button>
+                                <button className="dropdown-item" type="button" onClick={this.filtermenos}>1500+</button>
                             </div>
                         </div>
                     </div>
